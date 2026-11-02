@@ -3,11 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0D2C22">
 <meta name="robots" content="noindex, nofollow">
+<meta property="og:url" content="https://jparkersoftware.github.io/TheSchoolSafetyPartnership/">
+<meta property="og:image" content="https://jparkersoftware.github.io/TheSchoolSafetyPartnership/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The School Safety Partnership: safer schools, greater confidence">
+<meta name="twitter:card" content="summary_large_image">
 <title>The School Safety Partnership | Website concept</title>
 <meta name="description" content="Cambridge-based health and safety support for schools: audits, compliance, action planning and project management, built on 15 years' experience in schools.">
 <meta property="og:title" content="The School Safety Partnership: health and safety advice for schools">
-<meta property="og:description" content="Practical, proportionate health and safety support for schools, built on 15 years of managing school environments.">
+<meta property="og:description" content="Independent health and safety advice for schools from Clare Fordham, based near Cambridge.">
 <meta property="og:site_name" content="The School Safety Partnership">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/png" href="images/favicon.png">
@@ -20,12 +27,12 @@
 <a class="skip" href="#main">Skip to content</a>
 
 <!-- Concept bar: remove this block when the site goes live -->
-<div class="concept">
+<aside class="concept" aria-label="About this design concept">
   <div class="wrap">
     <p><strong>Design concept</strong> for The School Safety Partnership, prepared by ParkerTech. Gold dashed boxes mark details for Clare to fill in.</p>
     <button type="button" id="ph-toggle" aria-pressed="false">Hide gold boxes</button>
   </div>
-</div>
+</aside>
 
 <header class="site-header">
   <div class="wrap">
@@ -34,16 +41,18 @@
       <span>The School Safety Partnership</span>
     </a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-      Menu
+      <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      <span class="menu-label">Menu</span>
     </button>
     <nav class="site-nav" id="site-nav" aria-label="Main">
       <ul>
         <li><a href="#services">Services</a></li>
+        <li><a href="#prices">Prices</a></li>
         <li><a href="#how-it-works">How it works</a></li>
         <li><a href="#about">About Clare</a></li>
         <li><a href="#questions">Questions</a></li>
-        <li><a class="btn btn-gold" href="#contact" data-book>Book a free call</a></li>
+        <li><a class="btn btn-gold" href="#contact" data-book>Request a free call</a></li>
       </ul>
     </nav>
   </div>
@@ -55,11 +64,12 @@
 <section class="hero on-dark" id="top" aria-labelledby="hero-title">
   <div class="wrap">
     <div>
-      <h1 id="hero-title">Safer schools. Greater confidence.</h1>
-      <p class="hero-lede">Independent health and safety advice for schools, built on 15&nbsp;years of managing school environments. Practical, proportionate support that shows you what matters most, and helps you put it right.</p>
+      <p class="hero-tagline">Safer schools. Greater confidence.</p>
+      <h1 id="hero-title">Health and safety advice from someone who knows schools.</h1>
+      <p class="hero-lede">I'm Clare Fordham. I'll walk your site with you, check your records, and give you a plan that puts the most important things first.</p>
       <div class="hero-actions">
-        <a class="btn btn-gold" href="#contact" data-book>Book a free 30-minute call</a>
-        <a class="btn btn-ghost" href="#services">See how we help</a>
+        <a class="btn btn-gold" href="#contact" data-book>Request a free 30-minute call</a>
+        <a class="btn btn-ghost" href="#services">See how I can help</a>
       </div>
       <ul class="hero-facts">
         <li>
@@ -68,7 +78,7 @@
         </li>
         <li>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-          <span><strong>IOSH and NCRQ</strong>safety qualified</span>
+          <span><strong>Compliance manager</strong>for specialist schools</span>
         </li>
         <li>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
@@ -132,11 +142,12 @@
             <text x="68" y="236">Reception</text>
             <text x="362" y="90">Hall</text>
             <text x="482" y="104">Kitchen</text>
-            <text x="381" y="236">Science and DT</text>
+            <text x="381" y="236" class="lbl-long">Science and DT</text><text x="381" y="236" class="lbl-short">Science</text>
             <text x="244" y="275">Playground</text>
             <text x="448" y="361">Field</text>
             <text x="68" y="361">Car park</text>
             <text x="270" y="432" text-anchor="end">Gate</text>
+            <text x="492" y="188">Plant room</text>
           </g>
         </svg>
         <button class="pin" type="button" style="left:15.14%;top:57.48%" data-area="reception" aria-pressed="false"><span class="visually-hidden">Entrance and reception</span></button>
@@ -148,9 +159,10 @@
         <button class="pin" type="button" style="left:30.63%;top:79.44%" data-area="carpark" aria-pressed="false"><span class="visually-hidden">Car park and deliveries</span></button>
       </div>
       <div class="plan-caption" aria-live="polite">
-        <h2 id="plan-title">Every corner of your school site</h2>
-        <p id="plan-text">Select a gold marker to see what we look at in each part of a school.</p>
+        <h2 id="plan-title">Classrooms and corridors</h2>
+        <p id="plan-text">Fire doors and escape routes, electrical safety, furniture and storage, and slips, trips and falls.</p>
       </div>
+      <p class="plan-hint">Select a gold marker to see what I check in each part of a school.</p>
     </div>
   </div>
 </section>
@@ -159,19 +171,19 @@
 <section class="band on-light" aria-labelledby="duty-title">
   <div class="wrap duty">
     <div class="duty-copy">
-      <h2 id="duty-title">You're responsible for health and safety. You don't have to carry it alone.</h2>
-      <p>Heads, business managers and governors hold real duties for the safety of pupils, staff and visitors, on top of everything else a school asks of them.</p>
-      <p>We give you clear, practical advice from someone who knows how schools actually run, so you can make good decisions, fix what matters first, and get back to the work of educating children.</p>
-      <p class="law">Every school must appoint a competent person to help it meet its health and safety duties. We can be that support for your school.</p>
+      <h2 id="duty-title">Health and safety lands on your desk, next to everything else.</h2>
+      <p>Heads, business managers and governors carry legal duties for the safety of pupils, staff and visitors, alongside budgets, staffing and teaching.</p>
+      <p>I give you straight answers from someone who has worked in school leadership, so you can make good decisions, fix the most important things first, and get back to running your school.</p>
+      <p class="law">The law requires every school employer to appoint a competent person to help meet its health and safety duties. I can be that person for your school, or back up the one you already have.</p>
     </div>
     <div class="audience">
-      <h3>Who we work with</h3>
+      <h3>When schools call me</h3>
       <ul>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>School business managers</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Headteachers and senior leaders</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Trust estates and operations leads</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Governors and trustees</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Proprietors of independent and specialist schools</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>A new head or business manager is taking on health and safety</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>An inspection or compliance visit is coming up</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Summer works or a building project are being planned</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>There has been an accident or a near miss</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Governors or trustees want independent assurance</li>
       </ul>
     </div>
   </div>
@@ -181,72 +193,70 @@
 <section class="band band-linen on-light" id="services" aria-labelledby="services-title">
   <div class="wrap">
     <div class="section-head">
-      <h2 id="services-title">How we help</h2>
-      <p>Four ways we support schools. Use one on its own, or combine them for a complete picture.</p>
+      <h2 id="services-title">How I can help</h2>
+      <p>Four ways I work with schools. Use one on its own, or combine them.</p>
     </div>
     <div class="services">
       <article class="service">
         <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div>
         <h3>Health and safety consultancy</h3>
-        <p>Practical, tailored advice that helps your school meet its legal duties and keep pupils, staff and visitors safe.</p>
-        <p class="best-for"><strong>Good for:</strong> schools that want a trusted adviser on hand.</p>
+        <p>Advice tailored to your school, so you meet your legal duties and keep pupils, staff and visitors safe.</p>
+        <p class="best-for"><strong>Good for:</strong> schools that want an adviser on hand all year.</p>
         <details class="more">
           <summary>What's included <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
           <ul>
-            <li>Health and safety audits to identify risks and areas for improvement</li>
-            <li>Policies and procedures written for your school</li>
-            <li>Risk assessments and guidance on effective control measures</li>
-            <li>Compliance support on current legislation and good practice</li>
+            <li>Your health and safety policy and procedures, written for your school</li>
+            <li>Risk assessments for your site, activities and trips, and how to control the risks</li>
+            <li>Help keeping up with changes in legislation and guidance</li>
             <li>Staff training that builds confidence and a positive safety culture</li>
-            <li>Ongoing advice when new concerns or questions come up</li>
+            <li>Someone to call when a new concern or question comes up</li>
           </ul>
         </details>
       </article>
       <article class="service">
         <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg></div>
         <h3>Audits and compliance</h3>
-        <p>A clear, practical review of your current arrangements, so you know exactly where you stand.</p>
-        <p class="best-for"><strong>Good for:</strong> a new head or business manager, or independent schools preparing for inspection.</p>
+        <p>A full review of your current arrangements, so you know exactly where you stand.</p>
+        <p class="best-for"><strong>Good for:</strong> a new head or business manager, or independent and special schools preparing for inspection against the Independent School Standards.</p>
         <details class="more">
           <summary>What's included <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
           <ul>
-            <li>Risks identified across your premises, activities and working practices</li>
-            <li>A review of your existing arrangements, policies and procedures</li>
-            <li>Gaps and areas of concern highlighted plainly</li>
-            <li>Practical improvements that suit your school's needs and resources</li>
-            <li>Actions prioritised so you tackle the most important issues first</li>
+            <li>A walk of your whole site: buildings, plant rooms, grounds and outdoor areas</li>
+            <li>A check of your key records, such as your fire risk assessment, asbestos register, water hygiene records and inspection certificates</li>
+            <li>A review of your policy, risk assessments and procedures</li>
+            <li>Gaps and concerns set out plainly, the most serious first</li>
+            <li>Improvements that suit your school's budget and resources</li>
           </ul>
         </details>
       </article>
       <article class="service">
         <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></svg></div>
         <h3>Action planning</h3>
-        <p>Clear, prioritised recommendations that turn findings into a practical roadmap your team can follow.</p>
+        <p>Turns findings into a plan your team can follow, with the most important actions first.</p>
         <p class="best-for"><strong>Good for:</strong> schools with a list of issues and no clear order to tackle them.</p>
         <details class="more">
           <summary>What's included <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
           <ul>
-            <li>Next steps set out in a clear, manageable plan</li>
-            <li>Recommendations prioritised by risk, urgency and impact</li>
+            <li>Every action ranked by risk, urgency and impact</li>
+            <li>An owner and a target date for each action</li>
             <li>Quick wins alongside longer-term improvements</li>
-            <li>Clear responsibilities, so staff know what's expected of them</li>
-            <li>Support for confident decisions and ongoing compliance</li>
+            <li>A summary governors can use to track progress</li>
           </ul>
         </details>
       </article>
       <article class="service">
         <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/><path d="M14 6a6 6 0 0 1 6 6v3"/><path d="M4 15v-3a6 6 0 0 1 6-6"/><rect x="2" y="15" width="20" height="4" rx="1"/></svg></div>
         <h3>Project management</h3>
-        <p>Support to plan, organise and coordinate building and site projects, safely and with minimum disruption.</p>
+        <p>Help to plan and coordinate building and site projects, safely and with as little disruption as possible.</p>
         <p class="best-for"><strong>Good for:</strong> summer works, refurbishments and contractor-heavy projects.</p>
         <details class="more">
           <summary>What's included <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
           <ul>
-            <li>Clear objectives and an agreed project scope</li>
-            <li>A realistic plan with key milestones and timescales</li>
-            <li>Responsibilities agreed, so everyone understands their role</li>
-            <li>Coordination of contractors, suppliers and stakeholders</li>
-            <li>Progress, risks and actions monitored throughout</li>
+            <li>An agreed scope and a realistic plan with milestones</li>
+            <li>Contractor checks: insurance, risk assessments and method statements, and permits to work</li>
+            <li>Work areas kept apart from pupils, staff and visitors</li>
+            <li>Coordination of contractors, suppliers and school staff</li>
+            <li>Progress, risks and actions monitored through to handover</li>
           </ul>
         </details>
       </article>
@@ -254,12 +264,12 @@
   </div>
 </section>
 
-<!-- ================= WAYS TO WORK TOGETHER ================= -->
-<section class="band on-light" aria-labelledby="packages-title">
+<!-- ================= PRICES ================= -->
+<section class="band on-light" id="prices" aria-labelledby="packages-title">
   <div class="wrap">
     <div class="section-head">
-      <h2 id="packages-title">Ways to work together</h2>
-      <p>Simple options, with a clear price agreed before any work starts.</p>
+      <h2 id="packages-title">Prices</h2>
+      <p>A fixed price, agreed before any work starts.</p>
     </div>
     <div class="packages">
       <div class="package">
@@ -269,7 +279,8 @@
       </div>
       <div class="package package-feature on-dark">
         <h3>Ongoing support</h3>
-        <p>A named adviser for your school all year round: regular visits, policy reviews, and someone to call whenever questions come up.</p>
+        <p class="tag">Your competent person, all year</p>
+        <p>Regular visits, policy reviews, and someone to call whenever questions come up.</p>
         <p class="price"><span class="ph">[£&#8202;— per year]</span></p>
       </div>
       <div class="package">
@@ -278,7 +289,7 @@
         <p class="price"><span class="ph">[Fixed fee per project]</span></p>
       </div>
     </div>
-    <p class="package-note">Not sure which you need? <a href="#contact" data-book>Book a free call</a> and we'll talk it through.</p>
+    <p class="package-note">Not sure which you need? <a href="#contact" data-book>Request a free call</a> and we'll talk it through.</p>
   </div>
 </section>
 
@@ -287,7 +298,7 @@
   <div class="wrap">
     <div class="section-head">
       <h2 id="how-title">How it works</h2>
-      <p>A straightforward process, built around the way schools run.</p>
+      <p>From a first call to a plan you can act on.</p>
     </div>
     <ol class="steps">
       <li>
@@ -296,11 +307,11 @@
       </li>
       <li>
         <h3>A site visit</h3>
-        <p>We walk your site, review your documents and talk to the people who run it day to day.</p>
+        <p>I walk your site, review your documents and talk to the people who run it day to day.</p>
       </li>
       <li>
         <h3>Your report and action plan</h3>
-        <p>A plain-English report, with actions ranked by risk so you know what to do first.</p>
+        <p>A plain-English report, with every action ranked by risk so you know what to do first.</p>
       </li>
       <li>
         <h3>Support to put it right</h3>
@@ -325,14 +336,12 @@
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>IOSH Managing Safely</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>NCRQ Award in Safety for Managers</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Level 4 Diploma for School Business Managers</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Clerking Essentials, National Governance Association</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="ph">[Enhanced DBS checked]</span></li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="ph">[Professional indemnity and public liability insurance]</span></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Registered with the ICO (ZC283335)</li>
       </ul>
       <div class="signoff">
-        <p>Working together for safer schools.</p>
-        <a href="https://www.linkedin.com/in/clare-fordham-4216b5184/">Connect with Clare on LinkedIn</a>
+        <a class="btn btn-forest" href="#contact" data-book>Request a free call with Clare</a>
+        <a href="https://www.linkedin.com/in/clare-fordham-4216b5184/">Connect on LinkedIn</a>
       </div>
     </div>
   </div>
@@ -367,23 +376,23 @@
     <div class="faq-list">
       <details>
         <summary>Does our school have to have a competent person for health and safety?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p>Yes. Every school must appoint a competent person to help it meet its health and safety duties. That help can come from someone on your staff, your local authority or trust, or an independent adviser like us.</p>
+        <p>Yes. Health and safety law requires every employer, including whoever employs your school's staff, to appoint one or more competent people to help meet its duties (Management of Health and Safety at Work Regulations 1999, regulation 7). That help can come from someone on your staff, your local authority or trust, or an independent adviser like me.</p>
       </details>
       <details>
         <summary>We already buy in health and safety support. Can you still help?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p>Yes. Some schools ask us for an independent audit or a second opinion, or for help with a particular project such as summer building works.</p>
+        <p>Yes. Some schools ask me for an independent audit or a second opinion, or for help with a particular project such as summer building works.</p>
       </details>
       <details>
         <summary>How much does it cost?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p>It depends on the size of your school and what you need. After a free call, we'll send you a clear, fixed quote before any work starts.</p>
+        <p>It depends on the size of your school and what you need. After a free call, I'll send you a fixed quote before any work starts.</p>
       </details>
       <details>
         <summary>Which areas do you cover?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p>We're based in Horningsea, just outside Cambridge, and work with schools across <span class="ph">[the counties or areas you cover]</span>.</p>
+        <p>I'm based in Horningsea, just outside Cambridge, and work with schools across <span class="ph">[the counties or areas you cover]</span>.</p>
       </details>
       <details>
         <summary>What kinds of schools do you work with?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <p>Primary and secondary schools, academies and trusts, and independent schools, including specialist schools for pupils with special educational needs. Clare's background is in specialist education, so she understands the extra considerations that come with complex needs. Whatever your setting, our advice is tailored to your site and the way your school works.</p>
+        <p>Primary and secondary schools, academies and trusts, and independent schools, including specialist schools for pupils with special educational needs. Most of my career has been in specialist education, so I understand the extra considerations that come with complex needs. Whatever your setting, my advice is tailored to your site and the way your school works.</p>
       </details>
     </div>
   </div>
@@ -393,8 +402,8 @@
 <section class="band band-forest on-dark" id="contact" aria-labelledby="contact-title">
   <div class="wrap contact">
     <div>
-      <h2 id="contact-title">Let's talk about your school</h2>
-      <p class="contact-lede">Book a free 30-minute call, or send a message and Clare will reply <span class="ph">[within one working day]</span>.</p>
+      <h2 id="contact-title">Talk to Clare</h2>
+      <p class="contact-lede">Request a free 30-minute call, or send a message and I'll reply <span class="ph">[within one working day]</span>.</p>
       <ul class="contact-list">
         <li>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
@@ -423,20 +432,20 @@
           <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
           <div class="field"><label for="f-phone">Phone <span class="opt">(optional)</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
           <div class="field field-full">
-            <label for="f-need">What can we help with?</label>
+            <label for="f-need">What can I help with?</label>
             <select id="f-need" name="need" required>
               <option value="">Choose one</option>
-              <option value="call">Book a free 30-minute call</option>
+              <option value="call">A free 30-minute call</option>
               <option value="audit">A health and safety audit</option>
               <option value="support">Ongoing support</option>
               <option value="project">Help with a project</option>
               <option value="other">Something else</option>
             </select>
           </div>
-          <div class="field field-full"><label for="f-msg">Message</label><textarea id="f-msg" name="message" required></textarea></div>
+          <div class="field field-full"><label for="f-msg">Anything I should know? <span class="opt">(optional)</span></label><textarea id="f-msg" name="message"></textarea></div>
         </div>
         <button class="btn btn-forest" type="submit">Send enquiry</button>
-        <p class="form-small">We'll only use your details to reply to your enquiry. See our <a href="https://www.theschoolsafetypartnership.co.uk/privacy-policy">privacy policy</a>.</p>
+        <p class="form-small">I'll only use your details to reply to your enquiry. See the <a href="https://www.theschoolsafetypartnership.co.uk/privacy-policy">privacy policy</a>.</p>
       </div>
       <div class="form-done" role="status" tabindex="-1">
         <h3 id="done-title">Thank you</h3>
@@ -456,12 +465,13 @@
           <img src="images/logo-shield.webp" alt="" width="138" height="160">
           <span>The School Safety Partnership</span>
         </a>
-        <p>Practical, proportionate health and safety support for schools. Working together for safer schools.</p>
+        <p>Independent health and safety advice for schools, based near Cambridge. Working together for safer schools.</p>
       </div>
       <nav aria-label="Footer">
         <h2>Explore</h2>
         <ul>
           <li><a href="#services">Services</a></li>
+          <li><a href="#prices">Prices</a></li>
           <li><a href="#how-it-works">How it works</a></li>
           <li><a href="#about">About Clare</a></li>
           <li><a href="#questions">Questions</a></li>

@@ -11,15 +11,19 @@
 
   /* Mobile menu */
   var menuBtn=document.querySelector('.menu-btn'), nav=document.getElementById('site-nav');
-  menuBtn.addEventListener('click',function(){
-    var open=nav.classList.toggle('open');
+  var menuLabel=menuBtn.querySelector('.menu-label');
+  function setMenu(open){
+    nav.classList.toggle('open',open);
     menuBtn.setAttribute('aria-expanded',open?'true':'false');
-  });
-  nav.addEventListener('click',function(e){
-    if(e.target.closest('a')){nav.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');}
+    menuLabel.textContent=open?'Close':'Menu';
+  }
+  menuBtn.addEventListener('click',function(){setMenu(!nav.classList.contains('open'));});
+  nav.addEventListener('click',function(e){if(e.target.closest('a'))setMenu(false);});
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&nav.classList.contains('open')){setMenu(false);menuBtn.focus();}
   });
 
-  /* "Book a free call" links preselect the enquiry type */
+  /* "Request a free call" links preselect the enquiry type */
   document.querySelectorAll('[data-book]').forEach(function(a){
     a.addEventListener('click',function(){var s=document.getElementById('f-need');if(s){s.value='call';}});
   });
@@ -46,6 +50,7 @@
     p.addEventListener('click',function(){select(p.dataset.area);});
     p.addEventListener('mouseenter',function(){if(window.matchMedia('(hover:hover)').matches)select(p.dataset.area);});
   });
+  select('classrooms');
 
   /* Enquiry form. Preview only: connect to a form service before going live. */
   var form=document.getElementById('enquiry');
@@ -58,6 +63,9 @@
     var first=document.getElementById('f-first').value.trim();
     document.getElementById('done-title').textContent='Thank you, '+first;
     form.classList.add('sent');
-    form.querySelector('.form-done').focus();
+    var done=form.querySelector('.form-done');
+    var calm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    done.scrollIntoView({block:'center',behavior:calm?'auto':'smooth'});
+    done.focus({preventScroll:true});
   });
 })();
