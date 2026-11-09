@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.theschoolsafetypartnership.co.uk/sitemap.xml

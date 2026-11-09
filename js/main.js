@@ -1,14 +1,6 @@
 (function(){
   document.documentElement.classList.add('js');
 
-  /* Placeholder highlight toggle (concept only) */
-  var phBtn=document.getElementById('ph-toggle');
-  if(phBtn){phBtn.addEventListener('click',function(){
-    var on=document.body.classList.toggle('clean');
-    phBtn.setAttribute('aria-pressed',on?'true':'false');
-    phBtn.textContent=on?'Show gold boxes':'Hide gold boxes';
-  });}
-
   /* Mobile menu */
   var menuBtn=document.querySelector('.menu-btn'), nav=document.getElementById('site-nav');
   var menuLabel=menuBtn.querySelector('.menu-label');
@@ -31,7 +23,7 @@
   /* Interactive site plan */
   var areas={
     reception:{t:'Entrance and reception',d:'Visitor and contractor sign-in, site security, first aid provision and accident reporting.',shapes:['area-reception']},
-    classrooms:{t:'Classrooms and corridors',d:'Fire doors and escape routes, electrical safety, furniture and storage, and slips, trips and falls.',shapes:['area-classrooms']},
+    classrooms:{t:'Classrooms and corridors',d:'Basic fire door checks and escape routes, electrical safety, furniture and storage, and slips, trips and falls.',shapes:['area-classrooms']},
     hall:{t:'Hall and kitchen',d:'PE and stage equipment, working at height, and the arrangements with your catering provider.',shapes:['area-hall']},
     plant:{t:'Plant room and services',d:'Asbestos management, water hygiene and legionella, gas and electrical servicing, and permits for contractors.',shapes:['area-plant']},
     science:{t:'Science and DT',d:'Hazardous substances, fume cupboards, gas supplies and machinery guarding.',shapes:['area-science']},
@@ -52,20 +44,62 @@
   });
   select('classrooms');
 
-  /* Enquiry form. Preview only: connect to a form service before going live. */
+  /* Enquiry form.
+     FORM_ENDPOINT: paste a form-service URL here (for example a Formspree endpoint,
+     https://formspree.io/f/xxxxxxxx) and enquiries are sent straight to Clare's inbox.
+     While it is empty, the form opens a pre-filled email to Clare instead, so no enquiry is lost. */
+  var FORM_ENDPOINT='';
+  var CONTACT_EMAIL='clare@theschoolsafetypartnership.co.uk';
   var form=document.getElementById('enquiry');
+  function val(id){return document.getElementById(id).value.trim();}
+  function showDone(first,fallbackNote){
+    document.getElementById('done-title').textContent='Thank you, '+first;
+    if(fallbackNote){document.getElementById('done-text').textContent=fallbackNote;}
+    form.classList.add('sent');
+    var done=form.querySelector('.form-done');
+    var calm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    done.scrollIntoView({block:'center',behavior:calm?'auto':'smooth'});
+    done.focus({preventScroll:true});
+  }
   form.addEventListener('submit',function(e){
     e.preventDefault();
     if(!form.checkValidity()){
       form.reportValidity();
       return;
     }
-    var first=document.getElementById('f-first').value.trim();
-    document.getElementById('done-title').textContent='Thank you, '+first;
-    form.classList.add('sent');
-    var done=form.querySelector('.form-done');
-    var calm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    done.scrollIntoView({block:'center',behavior:calm?'auto':'smooth'});
-    done.focus({preventScroll:true});
+    var first=val('f-first');
+    var need=document.getElementById('f-need');
+    var needText=need.options[need.selectedIndex].text;
+    var lines=[
+      'Name: '+first+' '+val('f-last'),
+      'School or trust: '+val('f-school'),
+      'Role: '+val('f-role'),
+      'Email: '+val('f-email'),
+      'Phone: '+(val('f-phone')||'not given'),
+      'Looking for: '+needText,
+      '',
+      val('f-msg')
+    ];
+    if(FORM_ENDPOINT){
+      var btn=form.querySelector('button[type=submit]');
+      btn.disabled=true;
+      fetch(FORM_ENDPOINT,{
+        method:'POST',
+        headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body:JSON.stringify({
+          name:first+' '+val('f-last'),school:val('f-school'),role:val('f-role'),
+          email:val('f-email'),phone:val('f-phone'),need:needText,message:val('f-msg')
+        })
+      }).then(function(r){
+        if(!r.ok){throw new Error('send failed');}
+        showDone(first);
+      }).catch(function(){
+        btn.disabled=false;
+        alert('Sorry, your enquiry could not be sent. Please email '+CONTACT_EMAIL+' or call 07869 683990.');
+      });
+    }else{
+      window.location.href='mailto:'+CONTACT_EMAIL+'?subject='+encodeURIComponent('Website enquiry from '+val('f-school'))+'&body='+encodeURIComponent(lines.join('\n'));
+      showDone(first,'Your email app should now open with your enquiry ready to send. Please press send to reach Clare, who replies within one working day. If nothing opened, email '+CONTACT_EMAIL+'.');
+    }
   });
 })();
