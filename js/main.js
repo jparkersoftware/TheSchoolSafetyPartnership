@@ -48,7 +48,7 @@
      FORM_ENDPOINT: paste a form-service URL here (for example a Formspree endpoint,
      https://formspree.io/f/xxxxxxxx) and enquiries are sent straight to Clare's inbox.
      While it is empty, the form opens a pre-filled email to Clare instead, so no enquiry is lost. */
-  var FORM_ENDPOINT='';
+  var FORM_ENDPOINT='https://formsubmit.co/ajax/clare@theschoolsafetypartnership.co.uk';
   var CONTACT_EMAIL='clare@theschoolsafetypartnership.co.uk';
   var form=document.getElementById('enquiry');
   function val(id){return document.getElementById(id).value.trim();}
@@ -87,17 +87,27 @@
         method:'POST',
         headers:{'Content-Type':'application/json','Accept':'application/json'},
         body:JSON.stringify({
+          _subject:'Website enquiry from '+val('f-school'),
+          _template:'table',
+          _honey:'',
           name:first+' '+val('f-last'),school:val('f-school'),role:val('f-role'),
           email:val('f-email'),phone:val('f-phone'),need:needText,message:val('f-msg')
         })
       }).then(function(r){
-        if(!r.ok){throw new Error('send failed');}
+        return r.json().then(function(j){
+          if(!r.ok||!(j.success===true||j.success==='true')){throw new Error('send failed');}
+        });
+      }).then(function(){
         showDone(first);
       }).catch(function(){
         btn.disabled=false;
-        alert('Sorry, your enquiry could not be sent. Please email '+CONTACT_EMAIL+' or call 07869 683990.');
+        sendByEmailApp();
       });
     }else{
+      sendByEmailApp();
+    }
+    /* Fallback if the form service is unavailable: open a pre-filled email instead. */
+    function sendByEmailApp(){
       window.location.href='mailto:'+CONTACT_EMAIL+'?subject='+encodeURIComponent('Website enquiry from '+val('f-school'))+'&body='+encodeURIComponent(lines.join('\n'));
       showDone(first,'Your email app should now open with your enquiry ready to send. Please press send to reach Clare, who replies within one working day. If nothing opened, email '+CONTACT_EMAIL+'.');
     }
