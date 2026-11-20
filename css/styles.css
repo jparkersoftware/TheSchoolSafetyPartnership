@@ -207,6 +207,8 @@ details.more li::before{content:"";position:absolute;left:0;top:.95rem;width:.65
 .quotes figure{margin:0;padding-top:1.5rem;border-top:3px solid var(--brass)}
 .quotes blockquote{margin:0;font-family:var(--serif);font-size:clamp(1.25rem,2vw,1.5rem);line-height:1.5}
 .quotes figcaption{margin-top:1.25rem;color:var(--sage);font-size:.98rem}
+.quotes figure:nth-child(3):last-child{grid-column:1 / -1}
+.quotes figure:nth-child(3):last-child blockquote{max-width:48ch}
 @media (max-width:760px){.quotes{grid-template-columns:1fr}}
 
 /* FAQ */
