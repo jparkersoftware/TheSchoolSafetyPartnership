@@ -52,9 +52,11 @@
   var CONTACT_EMAIL='clare@theschoolsafetypartnership.co.uk';
   var form=document.getElementById('enquiry');
   function val(id){return document.getElementById(id).value.trim();}
-  function showDone(first,fallbackNote){
-    document.getElementById('done-title').textContent='Thank you, '+first;
-    if(fallbackNote){document.getElementById('done-text').textContent=fallbackNote;}
+  var doneText=document.getElementById('done-text');
+  var doneTextSent=doneText.innerHTML;
+  function showDone(title,fallbackNote){
+    document.getElementById('done-title').textContent=title;
+    if(fallbackNote){doneText.textContent=fallbackNote;}else{doneText.innerHTML=doneTextSent;}
     form.classList.add('sent');
     var done=form.querySelector('.form-done');
     var calm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -98,7 +100,7 @@
           if(!r.ok||!(j.success===true||j.success==='true')){throw new Error('send failed');}
         });
       }).then(function(){
-        showDone(first);
+        showDone('Thank you, '+first);
       }).catch(function(){
         btn.disabled=false;
         sendByEmailApp();
@@ -109,7 +111,7 @@
     /* Fallback if the form service is unavailable: open a pre-filled email instead. */
     function sendByEmailApp(){
       window.location.href='mailto:'+CONTACT_EMAIL+'?subject='+encodeURIComponent('Website enquiry from '+val('f-school'))+'&body='+encodeURIComponent(lines.join('\n'));
-      showDone(first,'Your email app should now open with your enquiry ready to send. Please press send to reach Clare, who replies within one working day. If nothing opened, email '+CONTACT_EMAIL+'.');
+      showDone('One more step, '+first,'We couldn\'t send your enquiry directly, so your email app should now open with it ready to go. Please press send in that email to reach Clare, who replies within one working day. If nothing opens, email '+CONTACT_EMAIL+' or call 07869 683990.');
     }
   });
 })();
