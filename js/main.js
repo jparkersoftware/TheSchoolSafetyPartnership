@@ -15,9 +15,20 @@
     if(e.key==='Escape'&&nav.classList.contains('open')){setMenu(false);menuBtn.focus();}
   });
 
+  /* Analytics events (no-ops unless the visitor accepted analytics, see analytics.js) */
+  function track(name,params){if(window.tssTrack){window.tssTrack(name,params);}}
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a[href^="tel:"],a[href^="mailto:"]');
+    if(a){track('contact_click',{method:a.getAttribute('href').indexOf('tel:')===0?'phone':'email'});}
+  });
+
   /* "Request a free call" links preselect the enquiry type */
   document.querySelectorAll('[data-book]').forEach(function(a){
-    a.addEventListener('click',function(){var s=document.getElementById('f-need');if(s){s.value='call';}});
+    a.addEventListener('click',function(){
+      var s=document.getElementById('f-need');if(s){s.value='call';}
+      var sec=a.closest('header,section');
+      track('book_call_click',{cta_location:sec&&sec.id?sec.id:'header'});
+    });
   });
 
   /* Interactive site plan */
@@ -100,6 +111,7 @@
           if(!r.ok||!(j.success===true||j.success==='true')){throw new Error('send failed');}
         });
       }).then(function(){
+        track('generate_lead',{enquiry_type:need.value,method:'form'});
         showDone('Thank you, '+first);
       }).catch(function(){
         btn.disabled=false;
@@ -110,6 +122,7 @@
     }
     /* Fallback if the form service is unavailable: open a pre-filled email instead. */
     function sendByEmailApp(){
+      track('generate_lead',{enquiry_type:need.value,method:'email_fallback'});
       window.location.href='mailto:'+CONTACT_EMAIL+'?subject='+encodeURIComponent('Website enquiry from '+val('f-school'))+'&body='+encodeURIComponent(lines.join('\n'));
       showDone('One more step, '+first,'We couldn\'t send your enquiry directly, so your email app should now open with it ready to go. Please press send in that email to reach Clare, who replies within one working day. If nothing opens, email '+CONTACT_EMAIL+' or call 07869 683990.');
     }

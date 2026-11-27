@@ -270,3 +270,17 @@ details.more li::before{content:"";position:absolute;left:0;top:.95rem;width:.65
 .legal{padding-top:1.75rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem 2rem;font-size:.85rem;line-height:1.6}
 .legal p{max-width:46rem}
 @media (max-width:760px){.footer-top{grid-template-columns:1fr}}
+
+/* Cookie choice (only shown once a GA measurement ID is set in js/analytics.js) */
+.consent{position:fixed;z-index:90;left:1rem;right:1rem;bottom:1rem;max-width:34rem;margin-inline:auto;background:var(--forest);color:var(--chalk);border:1px solid rgba(212,182,114,.5);border-radius:var(--radius);box-shadow:0 10px 30px rgba(8,30,23,.35);padding:1.1rem 1.25rem;font-size:.95rem;line-height:1.55}
+.consent[hidden]{display:none}
+.consent a{color:var(--wheat);font-weight:600}
+.consent :focus-visible{outline-color:var(--wheat)}
+.consent-actions{display:flex;gap:.75rem;margin-top:.9rem}
+.consent-actions .btn{flex:1 1 0;min-height:44px;padding:.5rem 1rem}
+.consent .btn-ghost{background:transparent}
+.consent .btn-ghost:hover{background:rgba(255,253,247,.08)}
+.link-btn{background:none;border:0;padding:0;font:inherit;color:inherit;text-decoration:underline;cursor:pointer}
+.link-btn[hidden]{display:none}
+.site-footer .link-btn{color:var(--sage-light)}
+.site-footer .link-btn:hover{color:var(--chalk)}

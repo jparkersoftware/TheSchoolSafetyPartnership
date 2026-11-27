@@ -16,35 +16,87 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "The School Safety Partnership",
-  "description": "Independent health and safety advice, audits and compliance support for schools, from Clare Fordham.",
-  "url": "https://www.theschoolsafetypartnership.co.uk/",
-  "image": "https://www.theschoolsafetypartnership.co.uk/images/og-image.jpg",
-  "logo": "https://www.theschoolsafetypartnership.co.uk/images/logo-shield.webp",
-  "telephone": "+447869683990",
-  "email": "clare@theschoolsafetypartnership.co.uk",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Clayhithe Road",
-    "addressLocality": "Horningsea",
-    "addressRegion": "Cambridgeshire",
-    "postalCode": "CB25 9JE",
-    "addressCountry": "GB"
-  },
-  "areaServed": [
-    { "@type": "AdministrativeArea", "name": "Cambridgeshire" },
-    { "@type": "AdministrativeArea", "name": "East Anglia" },
-    { "@type": "Country", "name": "United Kingdom" }
-  ],
-  "founder": { "@type": "Person", "name": "Clare Fordham", "sameAs": "https://www.linkedin.com/in/clare-fordham-4216b5184/" },
-  "knowsAbout": ["School health and safety audits", "Compliance for schools", "Health and safety action planning", "Project management for schools"]
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://www.theschoolsafetypartnership.co.uk/#business",
+      "name": "The School Safety Partnership",
+      "legalName": "The School Safety Partnership Ltd",
+      "description": "Independent health and safety advice, audits and compliance support for schools, from Clare Fordham.",
+      "slogan": "Safer schools. Greater confidence.",
+      "url": "https://www.theschoolsafetypartnership.co.uk/",
+      "image": "https://www.theschoolsafetypartnership.co.uk/images/og-image.jpg",
+      "logo": "https://www.theschoolsafetypartnership.co.uk/images/logo-shield.webp",
+      "telephone": "+447869683990",
+      "email": "clare@theschoolsafetypartnership.co.uk",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Clayhithe Road",
+        "addressLocality": "Horningsea",
+        "addressRegion": "Cambridgeshire",
+        "postalCode": "CB25 9JE",
+        "addressCountry": "GB"
+      },
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "Cambridgeshire" },
+        { "@type": "AdministrativeArea", "name": "East Anglia" },
+        { "@type": "Country", "name": "United Kingdom" }
+      ],
+      "founder": { "@id": "https://www.theschoolsafetypartnership.co.uk/#clare" },
+      "sameAs": ["https://find-and-update.company-information.service.gov.uk/company/17482599"],
+      "knowsAbout": ["School health and safety audits", "Compliance for schools", "Health and safety action planning", "Project management for schools", "Independent School Standards", "Health and safety risk assessments for schools"],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Health and safety services for schools",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Health and safety consultancy", "description": "Advice tailored to your school, so you meet your legal duties and keep pupils, staff and visitors safe." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Audits and compliance", "description": "A full review of your current arrangements, so you know exactly where you stand." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Action planning", "description": "Turns findings into a plan your team can follow, with the most important actions first." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Project management", "description": "Practical support to help plan, coordinate and deliver projects effectively, keeping everyone informed and ensuring actions stay on track." } }
+        ]
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.theschoolsafetypartnership.co.uk/#clare",
+      "name": "Clare Fordham",
+      "jobTitle": "Director",
+      "worksFor": { "@id": "https://www.theschoolsafetypartnership.co.uk/#business" },
+      "image": "https://www.theschoolsafetypartnership.co.uk/images/clare-portrait.webp",
+      "sameAs": ["https://www.linkedin.com/in/clare-fordham-4216b5184/"],
+      "hasCredential": [
+        { "@type": "EducationalOccupationalCredential", "name": "IOSH Managing Safely" },
+        { "@type": "EducationalOccupationalCredential", "name": "NCRQ Award in Safety for Managers" },
+        { "@type": "EducationalOccupationalCredential", "name": "Level 4 Diploma for School Business Managers" }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.theschoolsafetypartnership.co.uk/#website",
+      "url": "https://www.theschoolsafetypartnership.co.uk/",
+      "name": "The School Safety Partnership",
+      "inLanguage": "en-GB",
+      "publisher": { "@id": "https://www.theschoolsafetypartnership.co.uk/#business" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.theschoolsafetypartnership.co.uk/#questions",
+      "mainEntity": [
+        {"@type":"Question","name":"Does our school have to have a competent person for health and safety?","acceptedAnswer":{"@type":"Answer","text":"Yes. Health and safety law requires every employer, including whoever employs your school's staff, to appoint one or more competent people to help meet its duties (Management of Health and Safety at Work Regulations 1999, regulation 7). That help can come from someone on your staff, your local authority or trust, or an independent adviser like me."}},
+        {"@type":"Question","name":"We already buy in health and safety support. Can you still help?","acceptedAnswer":{"@type":"Answer","text":"Yes. Some schools ask me for an independent audit or a second opinion, or for help with a particular project such as summer building works."}},
+        {"@type":"Question","name":"How much does it cost?","acceptedAnswer":{"@type":"Answer","text":"Every school is different, so costs depend on its size, location and specific requirements. Following our initial conversation, I'll provide a clear, tailored quotation based on your actual needs."}},
+        {"@type":"Question","name":"Which areas do you cover?","acceptedAnswer":{"@type":"Answer","text":"I'm based just outside of Cambridge, and work with schools nationwide."}},
+        {"@type":"Question","name":"What kinds of schools do you work with?","acceptedAnswer":{"@type":"Answer","text":"Primary and secondary schools, academies and trusts, and independent schools, including specialist schools for pupils with special educational needs. Most of my career has been in specialist education, so I understand the extra considerations that come with complex needs. Whatever your setting, my advice is tailored to your site and the way your school works."}}
+      ]
+    }
+  ]
 }
 </script>
 <meta property="og:title" content="The School Safety Partnership: health and safety advice for schools">
 <meta property="og:description" content="Independent health and safety advice for schools from Clare Fordham, based near Cambridge.">
 <meta property="og:site_name" content="The School Safety Partnership">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="en_GB">
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -484,11 +536,12 @@
     </div>
     <div class="legal on-dark">
       <p>The School Safety Partnership Ltd. Registered in England and Wales, company number 17482599. Registered office: 3 Kings Cottage, Clayhithe Road, Horningsea, Cambridge, England, CB25 9JE. ICO registration number ZC283335.</p>
-      <p>&copy; 2026 The School Safety Partnership Ltd &nbsp;|&nbsp; <a href="privacy-policy/">Privacy policy</a></p>
+      <p>&copy; 2026 The School Safety Partnership Ltd &nbsp;|&nbsp; <a href="privacy-policy/">Privacy policy</a><span data-cookie-settings hidden> &nbsp;|&nbsp; <button type="button" class="link-btn">Cookie settings</button></span></p>
     </div>
   </div>
 </footer>
 
+<script src="js/analytics.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
